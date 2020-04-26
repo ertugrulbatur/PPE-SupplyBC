@@ -1,0 +1,75 @@
+{
+    "name": "basic-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "channel1": {
+            "orderers": [
+                "orderer"
+            ],
+            "peers": {
+                "org1peer0": {},
+                "org2peer0": {},
+                "org3peer0": {}
+            }
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "org1peer0"
+            ],
+            "certificateAuthorities": [
+                "caorg1"
+            ]
+        },
+        "Org2": {
+            "mspid": "Org2MSP",
+            "peers": [
+                "org2peer0"
+            ]
+        },
+        "Org3": {
+            "mspid": "Org3MSP",
+            "peers": [
+                "org3peer0"
+            ],
+            "certificateAuthorities": [
+                "caorg1"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer": {
+            "url": "grpc://orderer:31010"
+        }
+    },
+    "peers": {
+        "org1peer0": {
+            "url": "grpc://org1peer0:30100"
+        },
+        "org2peer0": {
+            "url": "grpc://org2peer0:30200"
+        },
+        "org3peer0": {
+            "url": "grpc://org3peer0:30300"
+        }
+    },
+    "certificateAuthorities": {
+        "caorg1": {
+            "url": "http://caorg1:7054",
+            "caName": "caorg1"
+        }
+    }
+}
